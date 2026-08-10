@@ -8,7 +8,7 @@ resource "aws_security_group" "target_vm_sg" {
     from_port       = 22
     to_port         = 22
     protocol        = "tcp"
-    security_groups = [aws_security_group.control_node_sg.id]
+    security_groups = [var.control_node_sg_id]
   }
 
   ingress {
@@ -16,7 +16,7 @@ resource "aws_security_group" "target_vm_sg" {
     from_port       = 9100
     to_port         = 9100
     protocol        = "tcp"
-    security_groups = [aws_security_group.control_node_sg.id]
+    security_groups = [var.control_node_sg_id]
   }
 
   egress {

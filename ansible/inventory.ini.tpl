@@ -8,5 +8,5 @@ control-node ansible_host=${CONTROL_IP}
 
 [all:vars]
 ansible_user=ubuntu
-ansible_ssh_private_key_file=~/.ssh/devops-lab.pem
+ansible_ssh_private_key_file=./.ssh/devops-lab.pem
 ansible_host_key_checking=False
