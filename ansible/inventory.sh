@@ -14,6 +14,3 @@ export TARGET3_IP
 
 # Render template into inventory.ini
 envsubst < inventory.ini.tpl > inventory.ini
-
-# Execute playbook
-ansible-playbook -i inventory.ini playbook.yml
