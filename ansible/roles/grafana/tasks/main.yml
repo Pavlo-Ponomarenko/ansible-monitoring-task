@@ -22,6 +22,16 @@
     state: started
 
 - name: Set the Grafana admin password
-  ansible.builtin.command: >
-    grafana-cli --homepath /usr/share/grafana admin reset-admin-password {{ vault_grafana_admin_password }}
-  no_log: true # do NOT show the password in the logs
+  ansible.builtin.command:
+    argv:
+      - grafana-cli
+      - --homepath
+      - /usr/share/grafana
+      - admin
+      - reset-admin-password
+      - "{{ vault_grafana_admin_password }}"
+  register: grafana_pw_result
+  changed_when: "'Admin password changed successfully' in grafana_pw_result.stdout"
+  failed_when: grafana_pw_result.rc != 0
+  become: true
+  no_log: true
