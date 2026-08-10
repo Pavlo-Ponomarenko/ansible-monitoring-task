@@ -38,7 +38,7 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-.pem
+*.pem
 inventory.ini
 
 **/group_vars/*
