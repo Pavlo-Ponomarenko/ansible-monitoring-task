@@ -22,7 +22,6 @@
     dest: "/usr/local/bin/node_exporter"
     mode: '0755'
     remote_src: true
-    creates: "/usr/local/bin/node_exporter"
 
 - name: Create the systemd service
   ansible.builtin.template:
