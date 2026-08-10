@@ -12,5 +12,8 @@ export TARGET1_IP
 export TARGET2_IP
 export TARGET3_IP
 
-# Render template into inventory.ini
+mkdir -p group_vars
+
+# Render templates
 envsubst < inventory.ini.tpl > inventory.ini
+envsubst < targets.yml.tpl > group_vars/targets.yml

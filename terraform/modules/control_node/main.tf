@@ -1,14 +1,22 @@
 resource "aws_security_group" "control_node_sg" {
   name        = "control-node-sg"
   description = "Allow SSH ingress to Control Node and all egress"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = var.vpc_id
 
   ingress {
     description = "SSH from anywhere"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Restrict to your specific IP range in production
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Grafana / Port 3000 from anywhere"
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {

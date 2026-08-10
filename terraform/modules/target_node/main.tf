@@ -1,7 +1,7 @@
 resource "aws_security_group" "target_vm_sg" {
   name        = "target-vm-sg"
   description = "Allow SSH and Port 9100 traffic strictly from Control Node"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = var.vpc_id
 
   ingress {
     description     = "SSH from Control Node"
