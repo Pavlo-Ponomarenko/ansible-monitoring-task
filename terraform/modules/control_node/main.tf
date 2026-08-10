@@ -43,9 +43,9 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "control_node" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = "t3.small"
-  subnet_id                   = aws_subnet.public.id
+  subnet_id                   = var.public_subnet_id
   vpc_security_group_ids      = [aws_security_group.control_node_sg.id]
-  key_name                    = aws_key_pair.generated_key.key_name
+  key_name                    = var.key_name
   associate_public_ip_address = true
 
   tags = {

@@ -10,6 +10,6 @@ resource "aws_key_pair" "generated_key" {
 
 resource "local_file" "private_key_pem" {
   content         = tls_private_key.ssh.private_key_pem
-  filename        = "${path.module}/control-node-key.pem"
+  filename        = "${path.root}/../ansible/.ssh/devops-lab.pem"
   file_permission = "0600"
 }
