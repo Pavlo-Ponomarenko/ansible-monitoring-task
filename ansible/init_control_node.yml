@@ -1,1 +1,11 @@
+---
+- name: Configure the monitoring server
+  hosts: control
+  become: true
 
+  vars_files:
+    - secrets.yml
+
+  roles:
+    - prometheus
+    - grafana

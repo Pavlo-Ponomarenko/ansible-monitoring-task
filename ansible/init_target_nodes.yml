@@ -1,0 +1,6 @@
+---
+- name: Configure servers for monitoring
+  hosts: targets
+  become: true
+  roles:
+    - node_exporter
