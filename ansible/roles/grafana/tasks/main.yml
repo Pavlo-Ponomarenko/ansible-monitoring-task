@@ -20,3 +20,8 @@
     name: grafana-server
     enabled: true
     state: started
+
+- name: Set the Grafana admin password
+  ansible.builtin.command: >
+    grafana-cli admin reset-admin-password {{ vault_grafana_admin_password }}
+  no_log: true # do NOT show the password in the logs
